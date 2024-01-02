@@ -1,0 +1,289 @@
+<!DOCTYPE html> <!-- Riva Sezgin -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Climate Crisis Impact on Animals and World</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body> 
+    <header>
+        <header>
+            <h1>Impact of Climate Crisis</h1>
+            <div class="navigation-box">
+              <nav>
+                <ul>
+                  <li><a href="adopt.html" class="nav-link">Adoptation</a></li>
+                </ul>
+              </nav>
+            </div>
+            <p>Explore How Climate Change Affected Animals and World</p>
+          </header>
+  <main>
+    <div class="animalInfo">
+      <h2>Impact of Climate Crisis on Animals</h2>
+      <p>The climate crisis has a profound impact on various animal species across the globe. Rising temperatures, habitat loss, extreme weather events, and disrupted ecosystems threaten the survival of numerous species.</p>
+      <p>From polar bears losing their sea ice habitats to coral reefs dying due to ocean warming, animals are facing challenges such as altered migration patterns, food scarcity, and increased vulnerability to diseases.</p>
+    </div>
+    
+    <div class="temperatureDisplay">
+        <h2>Average Yearly Temperature of Countries</h2>
+        <p>Averaged for the years 1961–1990, based on gridded climatologies from the Climatic Research Unit elaborated in 2011.(Wikipedia)</p>
+        <label for="countrySelect">Select a country:</label>
+        <select id="countrySelect" onchange="showTemperature()">
+          <option value="" selected disabled>Select a country</option>
+        </select>
+        <div id="selectedCountryTemperature"></div>
+    </div>
+
+    <div class="videoSection">
+      <h2>NASA's Temperature Anomalies Map </h2>
+      <div id="videoPlayer">
+        
+        <iframe width="800" height="400" src="https://www.youtube.com/embed/8ZdDWQTgP2Y" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <h3>This animated map shows monthly temperature anomalies (changes from an average) from summer 1880 to summer 2023 measured with respect to NASA's 1951-1980 baseline period.</h3>
+    <p>Learn more about Global Warming and Climate Change <a href="https://climate.nasa.gov/"class="nasa">here</a>.</p>
+    </div>
+
+    
+  </main>
+  
+  <footer>
+    <p> Riva Sezgin</p>
+  </footer>
+
+  <script>
+    const temperatureData = [
+    { Country: 'Afghanistan', Average: 12.60 },
+    { Country: 'Albania', Average: 11.40 },
+    { Country: 'Algeria', Average: 22.50 },
+    { Country: 'Andorra', Average: 7.60 },
+    { Country: 'Angola', Average: 21.55 },
+    { Country: 'Antigua and Barbuda', Average: 25.85 },
+    { Country: 'Argentina', Average: 14.80 },
+    { Country: 'Armenia', Average: 7.15 },
+    { Country: 'Australia', Average: 21.65 },
+    { Country: 'Austria', Average: 6.35 },
+    { Country: 'Azerbaijan', Average: 11.95 },
+    { Country: 'Bahamas', Average: 24.85 },
+    { Country: 'Bahrain', Average: 26.80 },
+    { Country: 'Bangladesh', Average: 25.00 },
+    { Country: 'Barbados', Average: 26.00 },
+    { Country: 'Belarus', Average: 6.15 },
+    { Country: 'Belgium', Average: 9.55 },
+    { Country: 'Belize', Average: 25.35 },
+    { Country: 'Benin', Average: 27.55 },
+    { Country: 'Bhutan', Average: 7.40 },
+    { Country: 'Bolivia', Average: 21.55 },
+    { Country: 'Bosnia and Herzegovina', Average: 9.85 },
+    { Country: 'Botswana', Average: 21.50 },
+    { Country: 'Brazil', Average: 24.95 },
+    { Country: 'Brunei', Average: 26.85 },
+    { Country: 'Bulgaria', Average: 10.55 },
+    { Country: 'Burkina Faso', Average: 28.29 },
+    { Country: 'Burundi', Average: 19.80 },
+    { Country: 'Cambodia', Average: 26.80 },
+    { Country: 'Cameroon', Average: 24.60 },
+    { Country: 'Canada', Average: -5.10 },
+    { Country: 'Cape Verde', Average: 23.30 },
+    { Country: 'Central African Republic', Average: 24.90 },
+    { Country: 'Chad', Average: 26.55 },
+    { Country: 'Chile', Average: 8.45 },
+    { Country: 'China', Average: 7.50 },
+    { Country: 'Colombia', Average: 24.50 },
+    { Country: 'Comoros', Average: 25.30 },
+    { Country: 'Costa Rica', Average: 24.80 },
+    { Country: 'Croatia', Average: 10.90 },
+    { Country: 'Cuba', Average: 25.20 },
+    { Country: 'Cyprus', Average: 18.45 },
+    { Country: 'Czech Republic', Average: 7.55 },
+    { Country: 'Democratic Republic of the Congo', Average: 24.00 },
+    { Country: 'Denmark', Average: 6.95 },
+    { Country: 'Djibouti', Average: 28.00 },
+    { Country: 'Dominica', Average: 22.35 },
+    { Country: 'Dominican Republic', Average: 24.55 },
+    { Country: 'Ecuador', Average: 21.85 },
+    { Country: 'Egypt', Average: 22.10 },
+    { Country: 'El Salvador', Average: 24.45 },
+    { Country: 'Equatorial Guinea', Average: 24.55 },
+    { Country: 'Eritrea', Average: 25.50 },
+    { Country: 'Estonia', Average: 2.00 },
+    { Country: 'Eswatini', Average: 21.40 },
+    { Country: 'Ethiopia', Average: 22.20 },
+    { Country: 'Federated States of Micronesia', Average: 25.85 },
+    { Country: 'Fiji', Average: 24.40 },
+    { Country: 'Finland', Average: 1.55 },
+    { Country: 'France', Average: 10.70 },
+    { Country: 'Gabon', Average: 25.05 },
+    { Country: 'Gambia', Average: 27.50 },
+    { Country: 'Georgia', Average: 5.65 },
+    { Country: 'Germany', Average: 8.40 },
+    { Country: 'Ghana', Average: 27.20 },
+    { Country: 'Greece', Average: 15.40 },
+    { Country: 'Grenada', Average: 26.00 },
+    { Country: 'Guatemala', Average: 23.45 },
+    { Country: 'Guinea', Average: 25.70 },
+    { Country: 'Guinea-Bissau', Average: 26.75 },
+    { Country: 'Guyana', Average: 26.00 },
+    { Country: 'Haiti', Average: 24.90 },
+    { Country: 'Honduras', Average: 23.50 },
+    { Country: 'Hong Kong', Average: 21.45 },
+    { Country: 'Hungary', Average: 9.75 },
+    { Country: 'Iceland', Average: -0.70 },
+    { Country: 'India', Average: 23.65 },
+    { Country: 'Indonesia', Average: 25.85 },
+    { Country: 'Iran', Average: 17.25 },
+    { Country: 'Iraq', Average: 21.40 },
+    { Country: 'Ireland', Average: 9.30 },
+    { Country: 'Israel', Average: 19.20 },
+    { Country: 'Italy', Average: 13.45 },
+    { Country: 'Ivory Coast', Average: 26.35 },
+    { Country: 'Jamaica', Average: 24.95 },
+    { Country: 'Japan', Average: 11.15 },
+    { Country: 'Jordan', Average: 18.30 },
+    { Country: 'Kazakhstan', Average: 5.50 },
+    { Country: 'Kenya', Average: 24.75 },
+    { Country: 'Kiribati', Average: 28.20 },
+    { Country: 'Kuwait', Average: 27.15 },
+    { Country: 'Kyrgyzstan', Average: 2.10 },
+    { Country: 'Laos', Average: 22.80 },
+    { Country: 'Latvia', Average: 5.60 },
+    { Country: 'Lebanon', Average: 15.00 },
+    { Country: 'Lesotho', Average: 11.85 },
+    { Country: 'Liberia', Average: 25.30 },
+    { Country: 'Libya', Average: 21.80 },
+    { Country: 'Liechtenstein', Average: 5.80 },
+    { Country: 'Lithuania', Average: 6.20 },
+    { Country: 'Luxembourg', Average: 8.65 },
+    { Country: 'Madagascar', Average: 22.65 },
+    { Country: 'Malawi', Average: 21.90 },
+    { Country: 'Malaysia', Average: 25.40 },
+    { Country: 'Maldives', Average: 28.00 },
+    { Country: 'Mali', Average: 28.25 },
+    { Country: 'Malta', Average: 19.20 },
+    { Country: 'Marshall Islands', Average: 27.40 },
+    { Country: 'Mauritania', Average: 27.65 },
+    { Country: 'Mauritius', Average: 22.40 },
+    { Country: 'Mexico', Average: 21.00 },
+    { Country: 'Moldova', Average: 9.45 },
+    { Country: 'Monaco', Average: 16.40 },
+    { Country: 'Mongolia', Average: 1.70 },
+    { Country: 'Montenegro', Average: 10.55 },
+    { Country: 'Morocco', Average: 17.10 },
+    { Country: 'Mozambique', Average: 23.80 },
+    { Country: 'Myanmar', Average: 13.05 },
+    { Country: 'Namibia', Average: 19.95 },
+    { Country: 'Nepal', Average: 8.10 },
+    { Country: 'Netherlands', Average: 9.25 },
+    { Country: 'New Zealand', Average: 12.74 },
+    { Country: 'Nicaragua', Average: 24.90 },
+    { Country: 'Niger', Average: 27.15 },
+    { Country: 'Nigeria', Average: 27.00 },
+    { Country: 'North Korea', Average: 5.70 },
+    { Country: 'North Macedonia', Average: 9.80 },
+    { Country: 'Norway', Average: 1.50 },
+    { Country: 'Oman', Average: 25.60 },
+    { Country: 'Pakistan', Average: 20.20 },
+    { Country: 'Palau', Average: 27.60 },
+    { Country: 'Panama', Average: 25.40 },
+    { Country: 'Papua New Guinea', Average: 25.25 },
+    { Country: 'Paraguay', Average: 23.55 },
+    { Country: 'Peru', Average: 19.60 },
+    { Country: 'Philippines', Average: 25.55 },
+    { Country: 'Poland', Average: 7.85 },
+    { Country: 'Portugal', Average: 15.15 },
+    { Country: 'Qatar', Average: 27.15 },
+    { Country: 'Republic of the Congo', Average: 24.55 },
+    { Country: 'Romania', Average: 8.80 },
+    { Country: 'Russia', Average: -5.35 },
+    { Country: 'Rwanda', Average: 17.85 },
+    { Country: 'Saint Kitts and Nevis', Average: 24.50 },
+    { Country: 'Saint Lucia', Average: 25.50 },
+    { Country: 'Saint Vincent and the Grenadines', Average: 26.80 },
+    { Country: 'Samoa', Average: 26.70 },
+    { Country: 'San Marino', Average: 12.90 },
+    { Country: 'São Tomé and Príncipe', Average: 23.75 },
+    { Country: 'Saudi Arabia', Average: 24.65 },
+    { Country: 'Senegal', Average: 27.85 },
+    { Country: 'Serbia', Average: 10.55 },
+    { Country: 'Seychelles', Average: 27.15 },
+    { Country: 'Sierra Leone', Average: 26.05 },
+    { Country: 'Singapore', Average: 27.50 },
+    { Country: 'Slovakia', Average: 6.80 },
+    { Country: 'Slovenia', Average: 8.90 },
+    { Country: 'Solomon Islands', Average: 25.65 },
+    { Country: 'Somalia', Average: 27.05 },
+    { Country: 'South Africa', Average: 17.75 },
+    { Country: 'South Korea', Average: 11.50 },
+    { Country: 'Spain', Average: 13.30 },
+    { Country: 'Sri Lanka', Average: 26.95 },
+    { Country: 'Sudan', Average: 26.90 },
+    { Country: 'Suriname', Average: 25.70 },
+    { Country: 'Sweden', Average: 1.75 },
+    { Country: 'Switzerland', Average: 5.10 },
+    { Country: 'Syria', Average: 17.75 },
+    { Country: 'Tajikistan', Average: 6.40 },
+    { Country: 'Tanzania', Average: 22.35 },
+    { Country: 'Thailand', Average: 26.30 },
+    { Country: 'Timor-Leste', Average: 25.25 },
+    { Country: 'Togo', Average: 27.15 },
+    { Country: 'Tonga', Average: 25.25 },
+    { Country: 'Trinidad and Tobago', Average: 25.75 },
+    { Country: 'Tunisia', Average: 19.20 },
+    { Country: 'Turkey', Average: 9.90 },
+    { Country: 'Turkmenistan', Average: 15.10 },
+    { Country: 'Tuvalu', Average: 27.65 },
+    { Country: 'Uganda', Average: 22.80 },
+    { Country: 'Ukraine', Average: 8.30 },
+    { Country: 'United Arab Emirates', Average: 26.65 },
+    { Country: 'United Kingdom', Average: 8.45 },
+    { Country: 'United States', Average: 8.55 },
+    { Country: 'Uruguay', Average: 17.55 },
+    { Country: 'Uzbekistan', Average: 12.05 },
+    { Country: 'Vanuatu', Average: 23.95 },
+    { Country: 'Venezuela', Average: 25.35 },
+    { Country: 'Vietnam', Average: 24.45 },
+    { Country: 'Yemen', Average: 23.85 },
+    { Country: 'Zambia', Average:21.40},
+    { Country: "Zimbabwe", Average:21.00},
+      
+    ];
+
+    // Function to populate countries in the dropdown
+    function populateCountries() {
+      const countrySelect = document.getElementById('countrySelect');
+      const sortedCountries = temperatureData.map(data => data.Country).sort();
+      sortedCountries.forEach(country => {
+        const option = document.createElement('option');
+        option.value = country;
+        option.textContent = country;
+        countrySelect.appendChild(option);
+      });
+    }
+
+    // Function to display the selected country's temperature
+    function showTemperature() {
+      const countrySelect = document.getElementById('countrySelect');
+      const selectedCountry = countrySelect.value;
+      const selectedCountryTemperature = document.getElementById('selectedCountryTemperature');
+      selectedCountryTemperature.innerHTML = '';
+      const countryData = temperatureData.find(data => data.Country === selectedCountry);
+      if (countryData) {
+        const averageTemperature = countryData.Average;
+        let temperatureClass = 'normal';
+        if (averageTemperature < 10) {
+          temperatureClass = 'cold';
+        } else if (averageTemperature > 25) {
+          temperatureClass = 'hot';
+        }
+        selectedCountryTemperature.innerHTML = `Average Yearly Temperature in  ${selectedCountry}: <span class="${temperatureClass}">${averageTemperature}°C</span>`;
+      } else {
+        selectedCountryTemperature.textContent = `Temperature data not available for ${selectedCountry}`;
+      }
+    }
+
+    // Call function to populate countries on page load
+    populateCountries();
+  </script>
+</body>
+</html>

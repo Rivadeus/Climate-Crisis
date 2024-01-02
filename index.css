@@ -1,0 +1,87 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f9;
+  }
+  header {
+    background-color: #1cc2e0;
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+  main {
+    padding: 20px;
+  }
+  .nav-link {
+      display: inline-block;
+      padding: 10px 20px;
+      text-decoration: none;
+      background-color: #ffffff;
+      color: rgb(41, 20, 20);
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+  }
+
+  .nav-link:hover {
+      background-color: #f71500;
+  }
+  .animalInfo {
+    margin-bottom: 30px;
+    background-color: #180353;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  .script {
+    color: #eaecf2;
+  }
+  
+  .temperatureDisplay {
+    margin-bottom: 30px;
+    background-color: #180353;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .videoSection {
+    margin-bottom: 30px;
+    background-color: #180353;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    justify-content: space-around;
+  }
+  
+  #videoPlayer {
+    width: 100%;
+    max-width: 800px; /* Adjust the maximum width as needed */
+    display: block;
+    margin: 0 auto;
+  }
+  .animalInfo h2,.videoSection h2 {
+    color: #eaecf2;
+    
+  }
+
+  .animalInfo p,.temperatureDisplay p,.videoSection p {
+    color: #eaecf2;
+    line-height: 1.6;
+  }
+  .nasa {
+  color: rgb(255, 255, 255);
+  }
+  .nasa:hover {
+      color: #ff0101ef;
+  }
+  
+  .cold {
+  color: blue;
+  }
+  .normal {
+    color: rgb(49, 179, 2); /* Define your normal temperature style */
+  }
+  .hot {
+    color: rgb(237, 88, 7); /* Define your hot temperature style */
+  }

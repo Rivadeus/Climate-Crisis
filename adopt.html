@@ -1,0 +1,149 @@
+<!DOCTYPE html> <!-- Riva Sezgin-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Adoptation</title>
+  <link rel="stylesheet" href="adopt.css">
+</head>
+<body>
+    <header>
+        <h1>Impact of Climate Crisis on Animals</h1>
+        <nav>
+          <ul>
+            <li><a href="index.html" class="nav-link">Return to Homepage</a></li>
+          </ul>
+        </nav>
+        <p>Explore how climate change affects animal habitats</p>
+      </header>
+    <div class = "why">
+        <h2>Why Adopting Animals is Important</h2>
+        <p>Adopting animals from shelters helps save lives by giving them a loving home. It reduces the strain on animal shelters and supports ethical treatment of animals.</p>
+    </div>
+    <div class = "how">
+        <h2>How These Animals Have Been Treated</h2>
+        <p>Our rescued animals have been provided with proper care, medical attention, and love. They have undergone rehabilitation to ensure they're ready for a new home.</p>
+    </div>
+    <div class = "how_adopt">
+        <h2>How does Adoptation System Works ?</h2>
+        <p>We are inspecting the forms that have been submitted.If you are eligibale, you can choose to make a donation and you will be granted a certificate. All donations to our site  will be used to create a better enviroment for our friends and help them</p>
+    </div>
+    <div class="title">
+        <h1>They Need You !</h1>
+    </div>
+  <div class="container">
+    <div class="animal">
+      <img src="panda.jpg" alt="Elephant">
+      <h2>Name: Shea</h2>
+      <h3>Age: 8 years (Adult)</h3>
+      <p>Story: Shea, the resilient adult panda, was saved from a dwindling bamboo forest. Now, amidst the changing climate, Shea struggles to find ample food. A conservation team races to aid Shea, crafting solutions to combat the looming crisis and secure a sustainable habitat. The pandas like Shea needs your help.</p>
+      <button onclick="toggleAdoptionTab()">Adopt</button>
+    </div>
+
+    <div class="animal">
+      <img src="elephant.jpg" alt="Elephant">
+      <h2>Name: Sunder</h2>
+      <h3>Age: 6 years(Juvenile)</h3>
+      <p>Story: Freed from a perilous situation caused by climate change, Sunder, the Asian elephant, embarks on a solitary journey, hoping to find his scattered herd. Knowing the challenges they face, he seeks assistance to lead them to safer grounds amidst the changing landscapes of their once-familiar home.</p>
+      <button onclick="toggleAdoptionTab()">Adopt</button>
+    </div>
+
+    <div class="animal">
+      <img src="leopard.jpg" alt="Snow Leopard">
+      <h2>Name: Sharpe</h2>
+      <h3>Age: 2 years(Baby)</h3>
+      <p>Story: Sharpe, the playful baby snow panther, was rescued from a melting habitat. Now, as the climate crisis escalates, Sharpe's home diminishes. Conservationists strive to secure Sharpe's future, devising plans to protect her against the encroaching environmental challenges.</p>
+      <button onclick="toggleAdoptionTab()">Adopt</button>
+    </div>
+
+    <div class="animal">
+      <img src="penguin.jpg" alt="Penguin">
+      <h2>Name: Peppin</h2>
+      <h3>Age: 5 months(Baby)</h3>
+      <p>Story: Lost amid melting ice sheets, a baby penguin struggled, Peppin's home disrupted by the encroaching effects of global warming. Alone and disoriented, the young bird called out, seeking the safety of its colony. Rescuers, alerted to the plight of this vulnerable Peppin, hurried to provide aid, a poignant reminder of the peril faced by wildlife in a changing world.</p>
+      <button onclick="toggleAdoptionTab()">Adopt</button>
+    </div>
+
+    <div class="animal">
+      <img src="polar.jpg" alt="Polar Bear">
+      <h2>Name: Laura</h2>
+      <h3>Age: 15 Years(Adult)</h3>
+      <p>Story: Meet Laura, a majestic adult polar bear, navigating the shrinking Arctic ice due to global warming. Stranded and weary, she searches for food and stable ground amidst the melting landscape. Wildlife conservationists, alerted to Aurora's plight, rush to rescue her, underscoring the urgent need to address climate change's impact on these magnificent creatures.</p>
+      <button onclick="toggleAdoptionTab()">Adopt</button>
+    </div>
+
+    <div class="animal">
+      <img src= "koala.jpg" alt="Koala">
+      <h2>Name: Matilda</h2>
+      <h3>Age: 4 years(Adult)</h3>
+      <p>Story: Deep in the Australian bushlands, Matilda, a resilient adult koala, was rescued from encroaching wildfires. Now, facing a relentless climate crisis, her habitat dwindles as temperatures soar, the lush eucalyptus groves withering away. Urgent efforts focus on preserving her home, seeking sustainable solutions amid this unforgiving environmental upheaval.</p>
+      <button onclick="toggleAdoptionTab()">Adopt</button>
+    </div>
+  </div>
+
+  <!-- Adoption tab -->
+  <div id="adoption-tab">
+    <button onclick="toggleAdoptionTab()" id="close-btn">x</button>
+    <h2>Adoption Form</h2>
+    <form onsubmit="submitForm(event)">
+      <label for="name">Your Name:</label><br>
+      <input type="text" id="name" name="name" required><br>
+      <label for="email">Your Email:</label><br>
+      <input type="email" id="email" name="email" required><br>
+      <label for="address">Your Address:</label><br>
+      <input type="address" id="address" name="adress" required><br>
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+
+  <!-- Notification message -->
+
+  <div id="notification"></div> 
+
+<script>
+  // Keeps record if form is submitted or not
+    let isFormSubmitted = false;
+  
+    function slideInAdoptionForm() {
+      const tab = document.getElementById('adoption-tab');
+      tab.style.right = '0';
+    }
+  // Function to toggle the visibility of the adoption form tab
+    function toggleAdoptionTab() {
+      const tab = document.getElementById('adoption-tab');
+      if (tab.style.display === 'none' || tab.style.display === '') {
+        tab.style.display = 'block';
+        slideInAdoptionForm();
+      } else {
+        tab.style.display = 'none';
+      }
+    }
+  
+  // Function to update status based on form submission
+    function submitForm(event) {
+      event.preventDefault();
+      if (!isFormSubmitted) {
+        const notification = document.getElementById('notification');
+        notification.innerText = 'Thank you for submitting! We will inform you.';
+        notification.style.display = 'block';
+        setTimeout(function() {
+          notification.style.display = 'none';
+        }, 5000);
+  
+        isFormSubmitted = true;
+        
+  // Hide the adoption tab after submission
+        const tab = document.getElementById('adoption-tab');
+        tab.style.right = '-400px';
+        
+  
+      } else {
+        const notification = document.getElementById('notification');
+        notification.innerText = 'Form already submitted!';
+        notification.style.display = 'block';
+        
+      }
+    }
+  </script>
+  
+</body>
+</html>
